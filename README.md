@@ -1,4 +1,4 @@
-# time-freq
+# coherence analysis
 
 Code for analysing time-frequency coherence based on Fourier decomposition
 
