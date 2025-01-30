@@ -16,7 +16,7 @@ function results = multi_er_spec(data,nfft,events,time,window,fs,alpha)
 % should have two columns (start and end sample) and the time points in
 % TIME are relative (0 corresponds to start sample and 1 to end sample).
 %
-% and XY are estimated for each segment. Spectral coefficients are then 
+% XX and XY are estimated for each segment. Spectral coefficients are then 
 % aggregated across trials (events) for the estimation of time-frequency
 % measures. 
 %
@@ -102,9 +102,9 @@ end
 segment = [-fix(window/2):fix(window/2)]';
 
 % check events
-if min(events(:))+min(time_matrix(:))+segment(1) < 0
+if events(1)+time_matrix(1,1)+segment(1) < 0
     error('Not enough data samples before the first event.\n')
-elseif max(events(:))+max(time_matrix(:))+segment(end) > size(data,1)
+elseif events(end)+time_matrix(end,end)+segment(end) > size(data,1)
     error('Not enough data samples after the last event.\n')
 end
 
